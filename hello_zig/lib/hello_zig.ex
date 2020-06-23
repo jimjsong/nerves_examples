@@ -1,5 +1,4 @@
 defmodule HelloZig do
-
   use Zigler
 
   ~Z"""
@@ -11,5 +10,4 @@ defmodule HelloZig do
     return beam.make_atom(env, world);
   }
   """
-
 end

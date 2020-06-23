@@ -49,15 +49,21 @@ config :vintage_net,
        ipv4: %{method: :dhcp}
      }},
     {"wlan0",
-      %{type: VintageNetWiFi,
-        vintage_net_wifi: %{
-          key_mgmt: :wpa_psk,
-          psk: System.get_env("NERVES_NETWORK_PSK"),
-          ssid: System.get_env("NERVES_NETWORK_SSID")
-        },
-        ipv4: %{
-          method: :dhcp
-        }}}
+     %{
+       type: VintageNetWiFi,
+       vintage_net_wifi: %{
+         networks: [
+           %{
+             key_mgmt: :wpa_psk,
+             psk: System.get_env("NERVES_NETWORK_PSK", "password1"),
+             ssid: System.get_env("NERVES_NETWORK_SSID", "unset")
+           }
+         ]
+       },
+       ipv4: %{
+         method: :dhcp
+       }
+     }}
   ]
 
 config :mdns_lite,

@@ -41,7 +41,7 @@ export NERVES_NETWORK_SSID=your_wifi_name
 export NERVES_NETWORK_PSK=your_wifi_password
 ```
 
-2. Get dependencies, build firmware, and burn it to an SD card
+2. Get dependencies, build firmware, and burn it to a MicroSD card
 
 ```shell
 mix deps.get
@@ -49,15 +49,15 @@ mix firmware
 mix firmware.burn
 ```
 
-3. Insert the SD card into your target board, then turn on the rPi.
+3. Insert the SD card into your target board and then turn on the RPi
 
-4. Wait for the rPi to finish booting.
+4. Wait for the RPi to finish booting
 
-  If you don't know what the ip address of your board is (if it's the first
-  time it's being assigned an ip), you might find out what it is using
-  `arp-scan`.
+  The RPi will show up on the network as `nerves.local`. If your computer
+  does not support mDNS or if your network filters multicast, check your
+  router or use `arp-scan` to find the IP address.
 
-5. SSH into your Raspberry Pi
+5. SSH into your RPi
 
 6. Execute `HelloZig.hello()`
 
